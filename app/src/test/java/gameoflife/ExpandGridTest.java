@@ -8,8 +8,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class ExpandGridTest {
-    @Test
-    public void ExpandGrid1() {
+    @Test public void ExpandGrid1() {
         ArrayList<ArrayList<Integer>> inputArray = new ArrayList<>();
         inputArray.add(new ArrayList<>(Arrays.asList(0,0)));
         inputArray.add(new ArrayList<>(Arrays.asList(0,1)));

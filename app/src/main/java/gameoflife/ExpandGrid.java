@@ -14,13 +14,12 @@ public class ExpandGrid {
                 }
                 expandedGrid.add(row);
             }
-            System.out.println(expandedGrid);
+
             for (int i = 1; i < expandedGrid.size() - 1; i++) {
                 for (int j = 1; j < expandedGrid.get(0).size() - 1; j++) {
                     expandedGrid.get(i).set(j, grid.get(i - 1).get(j - 1));
                 }
             }
-            System.out.println("ok");
             return expandedGrid;
         }
         else{

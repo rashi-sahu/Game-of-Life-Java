@@ -7,24 +7,28 @@ public class NextGeneration {
     static int CountAliveNeighbours(ArrayList<ArrayList<Integer>> grid, int x, int y)
     {
         int aliveNeighbours = 0;
+
         int row = grid.size();
-        int column = grid.get(0).size();
-        if (CheckValidCell(x - 1, y - 1, row, column) && grid.get(x - 1).get(y - 1) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x - 1, y, row, column) && grid.get(x - 1).get(y) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x - 1, y + 1, row, column) && grid.get(x - 1).get(y + 1) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x, y - 1, row, column) && grid.get(x).get(y - 1) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x, y + 1, row, column) && grid.get(x).get(y + 1) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x + 1, y - 1, row, column) && grid.get(x + 1).get(y - 1) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x + 1, y, row, column) && grid.get(x + 1).get(y) == 1)
-            aliveNeighbours += 1;
-        if (CheckValidCell(x + 1, y + 1, row, column) && grid.get(x + 1).get(y + 1) == 1)
-            aliveNeighbours += 1;
+        if(row>0) {
+            int column = grid.get(0).size();
+            if (CheckValidCell(x - 1, y - 1, row, column) && grid.get(x - 1).get(y - 1) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x - 1, y, row, column) && grid.get(x - 1).get(y) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x - 1, y + 1, row, column) && grid.get(x - 1).get(y + 1) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x, y - 1, row, column) && grid.get(x).get(y - 1) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x, y + 1, row, column) && grid.get(x).get(y + 1) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x + 1, y - 1, row, column) && grid.get(x + 1).get(y - 1) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x + 1, y, row, column) && grid.get(x + 1).get(y) == 1)
+                aliveNeighbours += 1;
+            if (CheckValidCell(x + 1, y + 1, row, column) && grid.get(x + 1).get(y + 1) == 1)
+                aliveNeighbours += 1;
+        }
+
         return aliveNeighbours;
     }
 
@@ -50,7 +54,7 @@ public class NextGeneration {
     {
         for (int l = 0; l < future.size(); l++)
         {
-            for (int m = 0; m < future.get(l).size(); m++)
+            for (int m = 0; m < future.get(0).size(); m++)
             {
                 int aliveNeighbours = CountAliveNeighbours(futureCopy, l, m);
                 if ((futureCopy.get(l).get(m) == 1) && (aliveNeighbours < 2))
@@ -66,6 +70,7 @@ public class NextGeneration {
                     future.get(l).set(m, futureCopy.get(l).get(m));
             }
         }
+
         return future;
     }
 
